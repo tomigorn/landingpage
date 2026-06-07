@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="home">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#221248">
+  <title>fastpi · homelab</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="status-dot" id="statusDot"></span>
+      <div class="brand-text">
+        <h1>fastpi</h1>
+        <span class="brand-sub">homelab</span>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <span class="mode-badge" id="modeBadge">Home</span>
+      <button class="toggle" id="modeToggle" role="switch" aria-label="Toggle home / away">
+        <span class="toggle-opt" data-mode="home">Home</span>
+        <span class="toggle-opt" data-mode="away">Away</span>
+        <span class="toggle-thumb" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="search-wrap">
+    <input id="search" type="search" placeholder="Filter services…" autocomplete="off" spellcheck="false">
+  </div>
+
+  <main id="grid"></main>
+
+  <footer class="foot">
+    <span id="count"></span>
+    <span class="foot-hint" id="footHint"></span>
+  </footer>
+
+  <script src="services.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

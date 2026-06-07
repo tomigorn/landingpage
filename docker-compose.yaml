@@ -1,0 +1,30 @@
+# =========================================================
+# Homelab landing page (static site served by nginx)
+# Runs alongside Dashy. Routed by Traefik:
+#   - home.holy-grail.ch   (public,  websecure)  -> see ../Traefik/.../dynamic/home.yml
+#   - home.fastpi.homelab  (LAN,     internal)
+# Also published on host port 8095 for direct LAN access without DNS/Traefik.
+# =========================================================
+services:
+  homelab-dashboard:
+    image: nginx:alpine
+    container_name: homelab-dashboard
+    mem_limit: 128m
+    restart: unless-stopped
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8095:80"           # direct LAN access: http://fastpi.homelab:8095
+    networks:
+      - traefik_proxy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 1m
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  traefik_proxy:
+    external: true
