@@ -45,8 +45,8 @@ const SERVICES = [
   // ---- Media & Downloads --------------------------------------------------
   { category: "media", name: "Audiobookshelf", desc: "Audiobooks & podcasts", icon: "📚",
     lan: "https://audiobookshelf.holy-grail.ch", wan: "https://audiobookshelf.holy-grail.ch" },
-  { category: "media", name: "qBittorrent", desc: "Torrent client", icon: "⬇️",
-    lan: `http://${HOST}:8085/` },
+  { category: "media", name: "qBittorrent (mouse)", desc: "Torrent client", icon: "⬇️",
+    lan: `http://${HOST}:8085/`, note: "mouse stack · behind VPN" },
   { category: "media", name: "SABnzbd", desc: "Usenet downloader", icon: "📰",
     lan: `http://${HOST}:8090/` },
   { category: "media", name: "Mousehole", desc: "qBittorrent companion", icon: "🐭",
