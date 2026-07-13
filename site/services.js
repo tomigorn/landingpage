@@ -33,6 +33,8 @@ const SERVICES = [
     lan: `http://${HOST}:3000/` },
   { category: "infra", name: "WireGuard",     desc: "VPN management (wg-easy)", icon: "🔑",
     lan: `http://wg-easy.${HOST}:8080/` },
+  { category: "infra", name: "Cup",           desc: "Docker image update checker", icon: "🥤",
+    lan: `http://${HOST}:8000/`, wan: "https://cup.holy-grail.ch" },
 
   // ---- Monitoring ---------------------------------------------------------
   { category: "monitoring", name: "Grafana",    desc: "Dashboards & graphs", icon: "📊",
