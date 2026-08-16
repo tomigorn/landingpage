@@ -35,6 +35,14 @@ const SERVICES = [
     lan: `http://wg-easy.${HOST}:8080/` },
   { category: "infra", name: "Cup",           desc: "Docker image update checker", icon: "🥤",
     lan: `http://${HOST}:8000/`, wan: "https://cup.holy-grail.ch" },
+  { category: "infra", name: "Beefy Waker",   desc: "Wake-on-LAN for beefy", icon: "⏰",
+    lan: `https://beefy-wol.${HOST}/` },
+  // LAN-only on purpose: this endpoint powers a machine on, so it must never be
+  // reachable from the internet. Traefik enforces that with an ipAllowList.
+  { category: "infra", name: "Tower Waker",   desc: "Wake-on-LAN for tower", icon: "⏰",
+    lan: `https://tower-wol.${HOST}/` },
+  { category: "infra", name: "Authentik",     desc: "Single sign-on (IdP)",  icon: "🔐",
+    lan: "https://sso.holy-grail.ch", wan: "https://sso.holy-grail.ch" },
 
   // ---- Monitoring ---------------------------------------------------------
   { category: "monitoring", name: "Grafana",    desc: "Dashboards & graphs", icon: "📊",
@@ -55,8 +63,17 @@ const SERVICES = [
     lan: `http://${HOST}:5010/` },
   { category: "media", name: "Port Updater", desc: "VPN port-forward helper", icon: "🔌",
     lan: `http://${HOST}:8087/` },
+  // Not a web service: `shares` makes this row open a popup instead of a link.
+  { category: "media", name: "Samba (mouse)", desc: "SMB file shares", icon: "📁",
+    host: HOST, shares: [
+      { name: "mouse",       path: "/mnt/seagate-red",           access: "read/write", users: ["mouse"] },
+      { name: "admin_books", path: "/mnt/seagate-black/library", access: "read/write", users: ["mouse"] },
+      { name: "books",       path: "/mnt/seagate-black/library", access: "read-only",  users: ["books", "mouse"] },
+    ] },
 
   // ---- Apps ---------------------------------------------------------------
+  { category: "apps", name: "Home Assistant", desc: "Home automation", icon: "🏠",
+    lan: `http://${HOST}:8123/` },
   { category: "apps", name: "WG-Chores", desc: "Chore tracker", icon: "🧹",
     lan: `http://${HOST}:8084/`, wan: "https://wg-aemtli.ddns.net" },
   { category: "apps", name: "WG-Chores DB", desc: "SQLite web viewer", icon: "🗃️",
@@ -68,6 +85,18 @@ const SERVICES = [
     lan: `http://${HOST}:8083/` },
   { category: "apps", name: "Backdrop Carousel", desc: "Wallpaper carousel", icon: "🖼️",
     lan: "https://backdrop-carousel.holy-grail.ch", wan: "https://backdrop-carousel.holy-grail.ch" },
+  // Runs on tower, which powers itself off when idle - the first request after a
+  // sleep waits ~2 min while Traefik's wake gate boots it.
+  { category: "apps", name: "Nextcloud", desc: "Files, calendar, contacts", icon: "☁️",
+    lan: "https://cloud.holy-grail.ch", wan: "https://cloud.holy-grail.ch",
+    note: "authentik login" },
+  { category: "apps", name: "LanguageTool", desc: "Grammar & style checker", icon: "📝",
+    lan: "https://languagetool.holy-grail.ch", wan: "https://languagetool.holy-grail.ch",
+    note: "basic auth" },
+  { category: "apps", name: "Loyalty Cards", desc: "Loyalty card wallet", icon: "🎴",
+    lan: "https://loyalty-cards.holy-grail.ch", wan: "https://loyalty-cards.holy-grail.ch" },
+  { category: "apps", name: "Stonks", desc: "Portfolio tracker", icon: "📈",
+    lan: "https://stonks.holy-grail.ch", wan: "https://stonks.holy-grail.ch" },
 
   // ---- Dev & Data ---------------------------------------------------------
   { category: "dev", name: "Jenkins", desc: "CI / CD", icon: "⚙️",
@@ -78,8 +107,11 @@ const SERVICES = [
     lan: `http://${HOST}:8089/` },
   { category: "dev", name: "Digitec Tracker", desc: "Price tracker web", icon: "💲",
     lan: `http://${HOST}:3002/` },
-  { category: "dev", name: "Loyalty Cards API", desc: "Backend API", icon: "🎴",
+  { category: "dev", name: "Loyalty Cards API", desc: "Backend API", icon: "🔌",
     lan: `http://${HOST}:5000/` },
+  { category: "dev", name: "Claude Mockups", desc: "Static mockup host", icon: "🎨",
+    lan: "https://claude-mockups.holy-grail.ch", wan: "https://claude-mockups.holy-grail.ch",
+    note: "basic auth" },
   { category: "dev", name: "phpLDAPadmin", desc: "LDAP admin (OpenNebula)", icon: "📇",
     lan: `http://${HOST}:6443/` },
 ];
