@@ -99,8 +99,10 @@ const SERVICES = [
     lan: "https://stonks.holy-grail.ch", wan: "https://stonks.holy-grail.ch" },
 
   // ---- Dev & Data ---------------------------------------------------------
+  // On-demand: Jenkins is stopped by default to save RAM. Start it first with
+  // `Docker/Jenkins/jenkins-ctl.sh start` (or `docker start jenkins-jdk-21`).
   { category: "dev", name: "Jenkins", desc: "CI / CD", icon: "⚙️",
-    lan: `http://${HOST}:8081/` },
+    lan: `http://${HOST}:8081/`, note: "on-demand · start first" },
   { category: "dev", name: "CloudBeaver", desc: "Database UI (loyalty)", icon: "🗄️",
     lan: `http://${HOST}:8978/` },
   { category: "dev", name: "pgweb", desc: "Postgres UI (Digitec)", icon: "🐘",
