@@ -46,7 +46,7 @@ const SERVICES = [
 
   // ---- Monitoring ---------------------------------------------------------
   { category: "monitoring", name: "Grafana",    desc: "Dashboards & graphs", icon: "📊",
-    lan: `http://${HOST}:3001/` },
+    lan: "https://grafana.holy-grail.ch/", note: "Holy Grail login · LAN/VPN only" },
   { category: "monitoring", name: "Prometheus", desc: "Metrics & alerts",    icon: "🔥",
     lan: `http://${HOST}:9090/` },
   { category: "monitoring", name: "InfluxDB",   desc: "Time-series database", icon: "⏱️",
