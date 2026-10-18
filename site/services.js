@@ -32,7 +32,7 @@ const SERVICES = [
   { category: "infra", name: "AdGuard Home",  desc: "DNS & ad blocking",     icon: "🛡️",
     lan: `http://${HOST}:3000/` },
   { category: "infra", name: "WireGuard",     desc: "VPN management (wg-easy)", icon: "🔑",
-    lan: `http://wg-easy.${HOST}:8080/` },
+    lan: "https://wg-easy.holy-grail.ch/", note: "Authentik login · LAN/VPN only" },
   { category: "infra", name: "Cup",           desc: "Docker image update checker", icon: "🥤",
     lan: `http://${HOST}:8000/`, wan: "https://cup.holy-grail.ch" },
   { category: "infra", name: "Beefy Waker",   desc: "Wake-on-LAN for beefy", icon: "⏰",
