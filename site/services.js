@@ -30,7 +30,7 @@ const SERVICES = [
   { category: "infra", name: "Traefik",       desc: "Reverse proxy dashboard", icon: "🔀",
     lan: "https://traefik.holy-grail.ch/dashboard/", note: "Holy Grail login · LAN/VPN only" },
   { category: "infra", name: "AdGuard Home",  desc: "DNS & ad blocking",     icon: "🛡️",
-    lan: `http://${HOST}:3000/` },
+    lan: "https://adguard.holy-grail.ch/", note: "Holy Grail login · LAN/VPN only" },
   { category: "infra", name: "WireGuard",     desc: "VPN management (wg-easy)", icon: "🔑",
     lan: "https://wg-easy.holy-grail.ch/", note: "Holy Grail login · LAN/VPN only" },
   { category: "infra", name: "Cup",           desc: "Docker image update checker", icon: "🥤",
