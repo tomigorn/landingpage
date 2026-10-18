@@ -34,7 +34,7 @@ const SERVICES = [
   { category: "infra", name: "WireGuard",     desc: "VPN management (wg-easy)", icon: "🔑",
     lan: "https://wg-easy.holy-grail.ch/", note: "Holy Grail login · LAN/VPN only" },
   { category: "infra", name: "Cup",           desc: "Docker image update checker", icon: "🥤",
-    lan: `http://${HOST}:8000/`, wan: "https://cup.holy-grail.ch" },
+    lan: "https://cup.holy-grail.ch", wan: "https://cup.holy-grail.ch", note: "Holy Grail login" },
   { category: "infra", name: "Beefy Waker",   desc: "Wake-on-LAN for beefy", icon: "⏰",
     lan: `https://beefy-wol.${HOST}/` },
   // LAN-only on purpose: this endpoint powers a machine on, so it must never be
@@ -56,13 +56,13 @@ const SERVICES = [
   { category: "media", name: "Audiobookshelf", desc: "Audiobooks & podcasts", icon: "📚",
     lan: "https://audiobookshelf.holy-grail.ch", wan: "https://audiobookshelf.holy-grail.ch" },
   { category: "media", name: "qBittorrent (mouse)", desc: "Torrent client", icon: "⬇️",
-    lan: `http://${HOST}:8085/`, note: "mouse stack · behind VPN" },
+    lan: "http://localhost:8085/", note: "ssh -L 8085:127.0.0.1:8085 fastpi" },
   { category: "media", name: "SABnzbd", desc: "Usenet downloader", icon: "📰",
-    lan: `http://${HOST}:8090/` },
+    lan: "http://localhost:8090/", note: "ssh -L 8090:127.0.0.1:8090 fastpi" },
   { category: "media", name: "Mousehole", desc: "qBittorrent companion", icon: "🐭",
-    lan: `http://${HOST}:5010/` },
+    lan: "http://localhost:5010/", note: "ssh -L 5010:127.0.0.1:5010 fastpi" },
   { category: "media", name: "Port Updater", desc: "VPN port-forward helper", icon: "🔌",
-    lan: `http://${HOST}:8087/` },
+    lan: "http://localhost:8087/", note: "ssh -L 8087:127.0.0.1:8087 fastpi" },
   // Not a web service: `shares` makes this row open a popup instead of a link.
   { category: "media", name: "Samba (mouse)", desc: "SMB file shares", icon: "📁",
     host: HOST, shares: [
