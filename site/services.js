@@ -28,7 +28,7 @@ const SERVICES = [
   { category: "infra", name: "Portainer",     desc: "Container management",  icon: "🐳",
     lan: `https://${HOST}:9443` },
   { category: "infra", name: "Traefik",       desc: "Reverse proxy dashboard", icon: "🔀",
-    lan: `http://${HOST}:8080/dashboard/`, note: "basic auth" },
+    lan: "https://traefik.holy-grail.ch/dashboard/", note: "Authentik login · LAN/VPN only" },
   { category: "infra", name: "AdGuard Home",  desc: "DNS & ad blocking",     icon: "🛡️",
     lan: `http://${HOST}:3000/` },
   { category: "infra", name: "WireGuard",     desc: "VPN management (wg-easy)", icon: "🔑",
