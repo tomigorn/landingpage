@@ -26,7 +26,7 @@ const CATEGORIES = [
 const SERVICES = [
   // ---- Infrastructure -----------------------------------------------------
   { category: "infra", name: "Portainer",     desc: "Container management",  icon: "🐳",
-    lan: `https://${HOST}:9443` },
+    lan: "https://portainer.holy-grail.ch/", note: "Holy Grail login · LAN/VPN only" },
   { category: "infra", name: "Traefik",       desc: "Reverse proxy dashboard", icon: "🔀",
     lan: "https://traefik.holy-grail.ch/dashboard/", note: "Authentik login · LAN/VPN only" },
   { category: "infra", name: "AdGuard Home",  desc: "DNS & ad blocking",     icon: "🛡️",
