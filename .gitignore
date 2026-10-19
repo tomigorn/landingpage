@@ -22,3 +22,9 @@ secrets/
 
 # Tooling state
 .superpowers/
+
+# AI working files (global rule, see ~/.claude/CLAUDE.md): never committed
+docs/superpowers/
+.claude/settings.local.json
+CLAUDE.local.md
+AGENTS.md
