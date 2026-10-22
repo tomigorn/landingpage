@@ -18,7 +18,6 @@ Design notes: [`docs/2026-05-29-homelab-landing-page-design.md`](docs/2026-05-29
 
 | URL | Scope | Needs |
 |-----|-------|-------|
-| `http://fastpi.homelab:8095` | LAN | nothing (works now) |
 | `http://home.fastpi.homelab` | LAN | AdGuard DNS (already routed via Traefik) |
 | `https://home.holy-grail.ch`  | Anywhere | the Cloudflare tunnel step below |
 
