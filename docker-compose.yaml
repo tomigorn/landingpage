@@ -15,8 +15,20 @@ services:
 # Homelab Dashboard #######################################
 # #########################################################
   homelab-dashboard:
-    image: ${NGINX_IMAGE:-nginx}:${NGINX_TAG:-alpine}
+    image: ${NGINX_IMAGE:-nginxinc/nginx-unprivileged}:${NGINX_TAG:-alpine}
     container_name: homelab-dashboard
+    # Non-root (dedicated uid; the image's own 101 is a real host user, _rpc), no
+    # capabilities, read-only rootfs. The sysctl lets it keep `listen 80`.
+    user: "65034:65034"
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: "0"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
     restart: unless-stopped
     mem_limit: 128m
     env_file:
