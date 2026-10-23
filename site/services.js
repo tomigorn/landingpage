@@ -61,8 +61,11 @@ const SERVICES = [
     lan: "http://localhost:8090/", note: "ssh -L 8090:127.0.0.1:8090 fastpi" },
   { category: "media", name: "Mousehole", desc: "qBittorrent companion", icon: "🐭",
     lan: "http://localhost:5010/", note: "ssh -L 5010:127.0.0.1:5010 fastpi" },
-  { category: "media", name: "Port Updater", desc: "VPN port-forward helper", icon: "🔌",
-    lan: "http://localhost:8087/", note: "ssh -L 8087:127.0.0.1:8087 fastpi" },
+  { category: "media", name: "VPN status (mouse)", desc: "qBittorrent VPN & forwarded port", icon: "🔌",
+    lan: "https://vpn-status-mouse.holy-grail.ch/", note: "Holy Grail login · LAN/VPN only" },
+  // Wakes beefy after the login.
+  { category: "media", name: "VPN status (beefy)", desc: "qBittorrent VPN & forwarded port", icon: "🔌",
+    lan: "https://vpn-status-beefy.holy-grail.ch/", note: "Holy Grail login · LAN/VPN only" },
   // Not a web service: `shares` makes this row open a popup instead of a link.
   { category: "media", name: "Samba (mouse)", desc: "SMB file shares", icon: "📁",
     host: HOST, shares: [
