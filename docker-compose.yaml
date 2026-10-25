@@ -37,7 +37,7 @@ services:
       - ./site:/usr/share/nginx/html:ro
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     networks:
-      - traefik_proxy
+      - traefik_home   # shared only with Traefik (H-2)
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
       interval: 1m
@@ -49,8 +49,8 @@ services:
 # Networks ================================================
 # =========================================================
 networks:
-  traefik_proxy:
-    external: true
+  traefik_home:
+    external: true   # defined in Docker/Traefik/docker-compose.yaml
 
 # =========================================================
 # Volumes =================================================

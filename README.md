@@ -39,7 +39,7 @@ docker compose restart      # after editing nginx config
 
 The Traefik route lives at
 `/home/pi/Projects/Docker/Traefik/traefik/dynamic/home.yml` (Traefik watches the folder and
-reloads automatically).
+reloads automatically). Network: `traefik_home`, shared only with Traefik (defined in its compose).
 
 ## ⚠️ One manual step for public access (`home.holy-grail.ch`)
 
